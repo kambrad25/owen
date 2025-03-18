@@ -1,0 +1,223 @@
+@font-face {
+    font-family: "Timmons NY 2.0";
+    src: url("../fonts/TimmonsNY_V2.005_Desktop/TIMMONSNY2.0-Regular.otf");
+}
+:root {
+    --font-one: "Timmons NY 2.0";
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+html, body {
+    height: 100%;
+}
+html {
+    font-size: 62.5%;
+    overscroll-behavior: none;
+}
+body {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.4;
+    font-family: var(--font-one);
+    color: white;
+}
+.container {
+    margin: 0 auto;
+    max-width: 144rem;
+    padding: 0 1.2rem
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+.preloader {
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    animation: hide 0ms 6.5s forwards;
+}
+.loader {
+    /* border: 1px solid red; */
+    display: flex;
+    max-height: 60%;
+    width: 500px;
+    justify-content: center;
+    gap: .01rem;
+    overflow: hidden;
+}
+
+.digit-one > span, .digit-two > span, .digit-three > span {
+    display: block;
+    font-size: 30rem;
+    /* font-size: clamp(5rem, , 10rem) */
+}
+.digit-one, .digit-two, .digit-three {
+    transition: transform 1s ease-in-out;
+}
+.digit-one {
+    transform: translateY(0);
+    transition: transform 2s 2s ease-in-out;
+    animation: digit-one 2s 2s ease-in-out forwards;
+}
+#d1 {
+    text-align: end;
+}
+.digit-two {
+    transform: translateY(0);
+    transition: transform 3s ease-in-out;
+    animation: digit-two 3s ease-in-out forwards;
+
+}
+
+.digit-three {
+    transform: translateY(0);
+    transition: transform 4s ease-in-out;
+    animation: digit-three 4s ease-in-out forwards;
+}
+
+.revealer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 105%;
+    height: 105%;
+    clip-path: inset(50% -50%);
+    background-color: white;
+    animation: reveal 650ms 4.2s forwards ease-in;
+}
+.images {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
+}
+.images > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transform: scale(1.2);
+    object-fit: cover;
+}
+.images > img:nth-child(3) {
+    filter: grayscale(70%);
+    /* opacity: 0; */
+    animation: img 650ms 4.4s forwards, opac-1 1024ms 5s forwards;
+}
+.images > img:nth-child(2) {
+    filter: grayscale(70%);
+    animation: img 650ms 5s forwards, opac-2 1024ms 5.5s  forwards;
+}
+.images > img:nth-child(1) {
+    filter: grayscale(70%);
+    animation: img 1s 5.5s forwards, opac-3 1024ms 6s forwards;
+}
+
+.preload-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* border: 1px solid red; */
+    text-align: center;
+    width: 100%;
+    line-height: 1;
+}
+.preload-logo-one, .preload-logo-two {
+    overflow: hidden;
+    font-size: 4rem;
+
+}
+.preload-logo-one > h1 {
+    position: relative;
+    font-weight: 100;
+    top: 50rem;
+    animation: plt1 1s 3.9s forwards;
+}
+.preload-logo-two > h1 {
+    position: relative;
+    font-weight: 100;
+    top: -50rem;
+    animation: plt2 1s 4s forwards;
+}
+main {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: inset(100% 0% 0% 0%);
+    animation: main 600ms 6.9s forwards ease-in-out;
+}
+@keyframes digit-one {
+    to {
+        transform: translateY(-420px);
+    }
+}
+@keyframes digit-two {
+    to {
+        transform: translateY(-4200px);
+    }
+}
+@keyframes digit-three {
+    to {
+        transform: translateY(-4200px);
+    }
+}
+@keyframes reveal {
+    to {
+        clip-path: inset(0% -50%);
+    }
+}
+@keyframes img {
+    to {
+        transform: scale(1);
+    }
+}
+@keyframes opac-1 {
+    to {
+        opacity: 0;
+    }
+}
+@keyframes opac-2 {
+    to {
+        opacity: 0;
+    }
+}
+@keyframes opac-3 {
+    to {
+        opacity: 0;
+    }
+}
+@keyframes plt1 {
+    to {
+        top: 0
+    }
+}
+@keyframes plt2 {
+    to {
+        top: 0;
+    }
+}
+@keyframes hide {
+    to {
+        display: none;
+    }
+}
+@keyframes main {
+    to {
+        clip-path: inset(0% 0% 0% 0%);
+    }
+}
