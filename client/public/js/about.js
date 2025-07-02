@@ -7,17 +7,20 @@ document.addEventListener("DOMContentLoaded", E => {
 
     let tl = gsap.timeline();
 
-    tl.to("h1:first-child", .4, {
+    // loader timeline
+    let ltl = gsap.timeline();
+
+    tl.to(".logo > h1:first-child", .4, {
         top: 0,
     })
-    .to("h1:first-child", {
+    .to(".logo > h1:first-child", {
         top: '-20rem',
     }, "+=.3")
-    .to("h1:last-child", {
+    .to(".logo > h1:last-child", {
         top: 0,
         ease: "power2.Out"
     })
-    .to("h1:last-child", {
+    .to(".logo > h1:last-child", {
         top: "-20rem",
     }, "+=.3")
 
@@ -69,7 +72,7 @@ document.addEventListener("DOMContentLoaded", E => {
         top: "-85px",
     }, "-=.5")
     .to(loader_char[7], 1.2, {
-        top: "-60px",
+        top: "-85px",
     }, "-=1.1")
     .to(loader_char[8], 1.2, {
         top: "-85px",
@@ -78,5 +81,29 @@ document.addEventListener("DOMContentLoaded", E => {
         height: 0
     }, "-=1.1")
 
+
+    ltl.to(".loader-line",1, {
+        ease: "power2.in",
+        maxWidth: "50%"
+    })
+    .to(".loader-line", {
+        maxWidth: "75%",
+        ease: "power3.out",
+        delay: .5
+    }, "-=.5")
+    .to(".loader-line", {
+        maxWidth: "100%",
+        delay: .5
+    })
+    .to(".header > div > h1", {
+        top: 0
+    }, 0)
+    .to(".header > div > h1", {
+        top: "-10rem"
+    }, 2)
+    .to(".loader-line", 1, {
+        rotate: 90,
+        ease: "power3.inOut"
+    })
 
 })
